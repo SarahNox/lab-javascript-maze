@@ -89,7 +89,7 @@ Maze.prototype.isPathLeft    = function(){
       return true;
     }
     case 2:
-    if(this._miner.col + 1 > 5 || this._maze[this._miner.col + 1][this._miner.row] === false) {
+    if(this._miner.col + 1 > 5 || this._maze[this._miner.row][this._miner.col + 1] === false) {
       return false;
     } else {
       return true;
@@ -135,30 +135,34 @@ Maze.prototype.isPathRight   = function(){
 Maze.prototype.moveForward   = function(){
   switch (this._miner.dir) {
     case 0: {
-      if(this._miner.row === 0 || [this._miner.row - 1] === false) {
+      if(this._miner.row === 0 || this._maze[this._miner.row - 1][this._miner.col] === false)  {
         return false;
       } else {
+        this._miner.row -= 1;
         return true;
       };
     }
     case 1: {
-      if(this._miner.col + 1 > 5 || [this._miner.col + 1] === false) {
+      if(this._miner.col + 1 > 5 || this._maze[this._miner.row][this._miner.col + 1] === false) {
         return false;
       } else {
+        this._miner.col += 1;
         return true;
       };
     }
     case 2: {
-      if(this._miner.row + 1 > 6 || [this._miner.row  + 1] === false) {
+      if(this._miner.row + 1 > 6 || this._maze[this._miner.row  + 1][this._miner.col] === false) {
         return false;
       } else {
+        this._miner.row += 1;
         return true;
       };
     }
     case 3: {
-      if(this._miner.col === 0 || [this._miner.col - 1] === false) {
+      if(this._miner.col === 0 || this._maze[this._miner.col - 1][this._miner.row] === false) {
         return false;
       } else {
+        this._miner.col -= 1;
         return true;
       };
     }
