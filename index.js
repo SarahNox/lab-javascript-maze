@@ -14,20 +14,12 @@ var exit= {row:5, col:5};
 var maze = new Maze(map,exit);
 
 // https://blockly-games.appspot.com/maze?lang=en
-while (maze.notDone()) {
+
+while (!maze.notDone()) {
   if (maze.isPathLeft()) {
     maze.turnLeft();
-    maze.moveForward();
-  } else {
-    if (maze.isPathForward()) {
-      maze.oveForward();
-    } else {
-      if (maze.isPathRight()) {
-        maze.turnRight();
-        maze.moveForward();
-      } else {
-        maze.turnLeft();
-      }
-    }
+  } else if (maze.isPathRight()) {
+    maze.turnRight();
   }
+  maze.moveForward();
 }

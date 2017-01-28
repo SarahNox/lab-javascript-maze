@@ -28,6 +28,9 @@ Maze.prototype.turnLeft      = function(){
   }
 }
 
+//  turnLeft : this._miner.dir = (this._miner.dir  === 0 ? 3 : this._miner.dir -1);
+//  turnRight : this._miner.dir = (this._miner.dir  === 3 ? 0 : this._miner.dir +1);
+
 Maze.prototype.turnRight     = function(){
   switch (this._miner.dir) {
   case 0:
